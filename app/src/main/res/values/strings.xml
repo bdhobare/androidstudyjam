@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Sunshine</string>
+    <string name="login" translatable="false">Sign up</string>
+    <string-array name="movies">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+    </string-array>
+</resources>
