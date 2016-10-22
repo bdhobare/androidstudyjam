@@ -11,12 +11,18 @@ import com.miles.sunshine.adapters.CustomAdapter;
 import com.miles.sunshine.models.MovieModel;
 import com.miles.sunshine.network.NetworkHandler;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
 import java.util.ArrayList;
 
 public class MovieActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<MovieModel> movies;
     private ProgressDialog dialog;
+    CustomAdapter adapter;
     private String url="http://api.androidhive.info/json/movies.json";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +31,7 @@ public class MovieActivity extends AppCompatActivity {
         movies=new ArrayList<>();
         movies.add(getMovie());
         listView=(ListView) findViewById(R.id.movies);
-        CustomAdapter adapter=new CustomAdapter(movies,this);
+        adapter=new CustomAdapter(movies,this);
         listView.setAdapter(adapter);
         dialog=new ProgressDialog(this);
         dialog.setMessage("Fetching movies...");
@@ -49,6 +55,32 @@ public class MovieActivity extends AppCompatActivity {
         protected void onPostExecute(String s){
             dialog.dismiss();
             Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+            if ((s != null) && (!s.isEmpty())){
+                Object object=null;
+                try{
+                    object=new JSONTokener(s).nextValue();
+                    if (object instanceof JSONArray){
+                        JSONArray array=new JSONArray(s);
+                        for (int i=0;i<array.length();i++){
+                            MovieModel movieModel=new MovieModel();
+                            JSONObject jsonObject=array.getJSONObject(i);
+                            movieModel.setName(jsonObject.getString("title"));
+                            movieModel.setRating(jsonObject.getString("rating"));
+                            movieModel.setImage(jsonObject.getString("image"));
+                            movieModel.setReleaseDate(jsonObject.getString("releaseYear"));
+                            movies.add(movieModel);
+                        }
+                        adapter.notifyDataSetChanged();
+
+                    }else {
+                        //
+                    }
+
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+
         }
     }
 
