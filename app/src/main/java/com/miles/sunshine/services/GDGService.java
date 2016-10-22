@@ -18,7 +18,7 @@ public class GDGService extends Service {
     }
     @Override
     public int onStartCommand(Intent intent,int flag,int flag0){
-        //Toast.makeText(getApplicationContext(),"Service started",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Service started",Toast.LENGTH_LONG).show();
         Notification.Builder builder=
                 new Notification.Builder(this)
                 .setContentTitle("GDG Sessions")
