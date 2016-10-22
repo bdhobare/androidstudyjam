@@ -14,18 +14,21 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".MovieActivity">
+        </activity>
+        <activity android:name=".RecyclerViewActivity" />
+
+        <service
+            android:name=".services.GDGService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".NewsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecyclerViewActivity"></activity>
-
-        <service
-            android:name=".services.GDGService"
-            android:enabled="true"
-            android:exported="true"></service>
     </application>
 
 </manifest>
