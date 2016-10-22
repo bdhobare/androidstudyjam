@@ -1,4 +1,4 @@
-package com.miles.sunshine;
+package com.miles.sunshine.models;
 
 /**
  * Created by miles on 10/15/16.

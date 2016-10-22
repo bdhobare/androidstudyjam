@@ -1,4 +1,4 @@
-package com.miles.sunshine;
+package com.miles.sunshine.adapters;
 
 import android.app.Activity;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.miles.sunshine.models.MovieModel;
+import com.miles.sunshine.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
