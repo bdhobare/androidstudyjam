@@ -42,7 +42,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnCli
                  openWebPage("https://github.com/bdhobare/androidstudyjam");
                  break;
             case R.id.mainactivity:
-                intent=new Intent(getApplicationContext(),MainActivity.class);
+                intent=new Intent(getApplicationContext(),FABActivity.class);
                 break;
             case R.id.movie:
                 intent=new Intent(getApplicationContext(),MovieActivity.class);
@@ -54,7 +54,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnCli
                 intent=new Intent(getApplicationContext(),TabbedActivity.class);
                 break;
             default:
-                intent=new Intent(getApplicationContext(),MovieActivity.class);
+                intent=new Intent(getApplicationContext(),FABActivity.class);
 
         }
         if (intent != null)
