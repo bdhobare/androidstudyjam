@@ -1,6 +1,7 @@
 package com.miles.sunshine;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.miles.sunshine.adapters.CustomAdapter;
 import com.miles.sunshine.models.MovieModel;
 import com.miles.sunshine.network.NetworkHandler;
+import com.miles.sunshine.services.GDGService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +39,10 @@ public class MovieActivity extends AppCompatActivity {
         dialog.setMessage("Fetching movies...");
         dialog.setIndeterminate(true);
         new GetMovies().execute(url);
+
+        Intent intent=new Intent(getApplicationContext(), GDGService.class);
+        startService(intent);
+
     }
     private class GetMovies extends AsyncTask<String,Void,String>{
 
@@ -54,7 +60,7 @@ public class MovieActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s){
             dialog.dismiss();
-            Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
             if ((s != null) && (!s.isEmpty())){
                 Object object=null;
                 try{
