@@ -18,29 +18,21 @@ import java.util.ArrayList;
 public class MovieActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<MovieModel> movies;
-    ProgressDialog dialog;
+    private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
         movies=new ArrayList<>();
         movies.add(getMovie());
-        dialog=new ProgressDialog(this);
-        dialog.setMessage("Fetching images");
-        dialog.setIndeterminate(true);
         listView=(ListView) findViewById(R.id.movies);
         CustomAdapter adapter=new CustomAdapter(movies,this);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-        new GetImages().execute("http://api.androidhive.info/json/movies.json");
-
+        dialog=new ProgressDialog(this);
+        dialog.setMessage("Fetching movies...");
+        dialog.setIndeterminate(true);
     }
-    private class GetImages extends AsyncTask<String,Void,String>{
+    private class GetMovies extends AsyncTask<String,Void,String>{
 
         @Override
         protected void onPreExecute(){
@@ -49,17 +41,18 @@ public class MovieActivity extends AppCompatActivity {
         }
 
         @Override
-        protected String doInBackground(String... params) {
-            return new NetworkHandler().get(params[0]);
+        protected Object doInBackground(String... params) {
+            return null;
         }
-
         @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            dialog.dismiss();
-            Log.d(MovieActivity.class.getName(),s);
+        protected void onPostExecute(String s){
+            super.onPostExecute();
         }
     }
+
+
+
+
     /*
     * Create a sample movie
     * */
