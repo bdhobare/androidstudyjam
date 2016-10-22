@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".SecondActivity" />
-        <activity android:name=".MovieActivity"></activity>
+        <activity android:name=".MovieActivity" />
         <activity android:name=".RecyclerViewActivity" />
 
         <service
@@ -21,15 +21,28 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".NewsActivity">
-        </activity>
-        <activity android:name=".MenuActivity">
+        <activity android:name=".NewsActivity" />
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FABActivity"
+            android:label="@string/title_activity_fab"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".TabbedActivity"
+            android:label="@string/title_activity_tabbed"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

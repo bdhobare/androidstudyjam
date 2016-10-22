@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -16,6 +17,9 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         TextView source=(TextView)findViewById(R.id.source);
         Button main=(Button)findViewById(R.id.mainactivity);
         Button movie=(Button)findViewById(R.id.movie);
@@ -44,10 +48,10 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnCli
                 intent=new Intent(getApplicationContext(),MovieActivity.class);
                 break;
             case R.id.recycler:
-                intent=new Intent(getApplicationContext(),RecyclerViewActivity.class);
+                intent=new Intent(getApplicationContext(),DrawerActivity.class);
                 break;
             case R.id.news:
-                intent=new Intent(getApplicationContext(),NewsActivity.class);
+                intent=new Intent(getApplicationContext(),TabbedActivity.class);
                 break;
             default:
                 intent=new Intent(getApplicationContext(),MovieActivity.class);

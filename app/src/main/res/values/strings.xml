@@ -28,4 +28,13 @@ He spoke on Thursday during the a meeting of Amani\'s National Elections Committ
 Mudavadi has been in talks with Cord leader Raila Odinga for the formation of a super alliance to defeat President Uhuru Kenyatta\'s Jubilee Party in the next election.
 
 </string>
+    <string name="title_activity_fab">FABActivity</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
