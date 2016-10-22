@@ -42,7 +42,8 @@
         <activity
             android:name=".TabbedActivity"
             android:label="@string/title_activity_tabbed"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ImageActivity"></activity>
     </application>
 
 </manifest>
