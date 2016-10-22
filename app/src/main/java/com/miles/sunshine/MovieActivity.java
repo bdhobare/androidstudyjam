@@ -4,10 +4,8 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.miles.sunshine.adapters.CustomAdapter;
 import com.miles.sunshine.models.MovieModel;
@@ -19,6 +17,7 @@ public class MovieActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<MovieModel> movies;
     private ProgressDialog dialog;
+    private String url="http://api.androidhive.info/json/movies.json";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +30,7 @@ public class MovieActivity extends AppCompatActivity {
         dialog=new ProgressDialog(this);
         dialog.setMessage("Fetching movies...");
         dialog.setIndeterminate(true);
+        new GetMovies().execute(url);
     }
     private class GetMovies extends AsyncTask<String,Void,String>{
 
@@ -41,12 +41,14 @@ public class MovieActivity extends AppCompatActivity {
         }
 
         @Override
-        protected Object doInBackground(String... params) {
-            return null;
+        protected String doInBackground(String... params) {
+            String result=new NetworkHandler().get(params[0]);
+            return result;
         }
         @Override
         protected void onPostExecute(String s){
-            super.onPostExecute();
+            dialog.dismiss();
+            Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
         }
     }
 
