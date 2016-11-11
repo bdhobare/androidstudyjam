@@ -1,2 +1,2 @@
 # androidstudyjam
-Code samples for the android study jam sessions @  Google Developers Group,JKUAT.
+Code samples demonstrating Android Basics for the Android study jam sessions @  GDG,JKUAT.
