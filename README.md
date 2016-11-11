@@ -1,2 +1,2 @@
 # androidstudyjam
-Code samples demonstrating Android Basics for the Android study jam sessions @  GDG,JKUAT.
+Code samples demonstrating the basics of android programming accompanying the Android study jam sessions @  GDG,JKUAT.
